@@ -1,3 +1,16 @@
+const selectButton = document.querySelectorAll(`[data-selection]`);
+
+selectButton.forEach(selectButton => {
+   selectButton.addEventListener('click', e => {
+      const selectName = selectButton.dataset.selection
+      makeSelection(selectName)
+   })
+})
+
+function makeSelection(selection) {
+   console.log(selection)
+}
+
 //scoreboard
 let playerScore = 0;
 let computerScore = 0;
@@ -42,21 +55,22 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //function to playRound five times
-function game() {
-   playRound();
-   for (let i = 0; i < 5; i++) {
-      playerSelection = prompt('Type in one of the following: Rock, Paper, or Scissors?');
-      computerSelection = computerPlay();
-      console.log(playRound(playerSelection, computerSelection));
-      console.log(playerScore);
-      console.log(computerScore);
-      if (playerScore >= 3) {
-         console.log('You win the game!');
-      }
-      if (computerScore >= 3) {
-         console.log('You lose! Computer wins!');
-      }
-   }
-}
-//game function call
-game();
+// function game() {
+//    playRound();
+//    for (let i = 0; i < 5; i++) {
+//       playerSelection = prompt('Type in one of the following: Rock, Paper, or Scissors?');
+//       computerSelection = computerPlay();
+//       console.log(playRound(playerSelection, computerSelection));
+//       console.log(playerScore);
+//       console.log(computerScore);
+//       if (playerScore >= 3) {
+//          console.log('You win the game!');
+//       }
+//       if (computerScore >= 3) {
+//          console.log('You lose! Computer wins!');
+//       }
+//    }
+// }
+// //game function call
+// game();
+
