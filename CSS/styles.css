@@ -1,0 +1,15 @@
+body {
+    background-color: aliceblue;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
