@@ -1,16 +1,3 @@
-const selectButton = document.querySelectorAll(`[data-selection]`);
-
-selectButton.forEach(selectButton => {
-   selectButton.addEventListener('click', e => {
-      const selectName = selectButton.dataset.selection
-      makeSelection(selectName)
-   })
-})
-
-function makeSelection(selection) {
-   console.log(selection)
-}
-
 //scoreboard
 let playerScore = 0;
 let computerScore = 0;
@@ -21,56 +8,58 @@ function computerPlay() {
    return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 
+//playerSelection button event
+const button = document.querySelectorAll("button");
+
+button.forEach(button => {
+   button.addEventListener('click', function() {
+      const playerSelection = button.dataset.selection
+      playRound(playerSelection, computerPlay);
+   })
+})
+
+//disable the buttons after 5 points have been reached
+button.forEach(button => {
+   button.addEventListener('click', function() {
+      if ((playerScore == 5 && playerScore > computerScore) || (computerScore == 5 && computerScore > playerScore)) {
+         button.disabled = true;
+      }
+      else {
+         button.disabled = false;
+      }
+   })
+})
+
 //function to play a single round
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+   let computerSelection = computerPlay();
    let result = '';
-   
-   if (playerSelection === 'rock' && computerSelection === 'Paper') {
-      computerScore++;
-      return result = `Computer wins! ${computerSelection} beats Rock!`;
+
+   if ((playerSelection === 'Rock' && computerSelection === 'Scissors') ||
+      (playerSelection === 'Paper' && computerSelection === 'Rock') ||
+      (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
+      
+      playerScore += 1;
+      result += ('You win! ' + playerSelection + ' beats ' + computerSelection.toLowerCase() + '!');
+
+      if (playerScore >= 5 && playerScore > computerScore) {
+         result += (' You win the game!');
+      }
    }
-   if (playerSelection === 'rock' && computerSelection === 'Scissors') {
-      playerScore++;
-      return result = `You win! Rock beats ${computerSelection}!`;
+   else if (playerSelection === computerSelection) {
+      result += ('It\'s a tie. You both chose ' + playerSelection.toLowerCase()+ '!');
    }
-   if (playerSelection === 'paper' && computerSelection === 'Scissors') {
-      computerScore++;
-      return result = `Computer wins! ${computerSelection} beats Paper!`;
-   }
-   if (playerSelection === 'paper' && computerSelection === 'Rock') {
-      playerScore++;
-      return result = `You win! Paper beats ${computerSelection}!`;
-   }
-   if (playerSelection === 'scissors' && computerSelection === 'Rock') {
-      computerScore++;
-      return result = `Computer wins! ${computerSelection} beats Scissors!`;
-   }
-   if (playerSelection === 'scissors' && computerSelection === 'Paper'){
-      playerScore++;
-      return result = `You win! Scissors beats ${computerSelection}!`;
-   }
+
    else {
-      return result = 'It\'s a tie!'
+      computerScore += 1;
+      result += ('You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase()+ '!');
+
+      if (computerScore >= 5 && computerScore > playerScore) {
+         result += (' Computer won the game!');
+      }
    }
+   document.getElementById('playerScore').textContent = playerScore;
+   document.getElementById('computerScore').textContent = computerScore;
+   document.getElementById('result').textContent = result;
+   return;
 }
-
-//function to playRound five times
-// function game() {
-//    playRound();
-//    for (let i = 0; i < 5; i++) {
-//       playerSelection = prompt('Type in one of the following: Rock, Paper, or Scissors?');
-//       computerSelection = computerPlay();
-//       console.log(playRound(playerSelection, computerSelection));
-//       console.log(playerScore);
-//       console.log(computerScore);
-//       if (playerScore >= 3) {
-//          console.log('You win the game!');
-//       }
-//       if (computerScore >= 3) {
-//          console.log('You lose! Computer wins!');
-//       }
-//    }
-// }
-// //game function call
-// game();
-
