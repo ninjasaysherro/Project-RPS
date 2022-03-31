@@ -19,16 +19,17 @@ button.forEach(button => {
 })
 
 //disable the buttons after 5 points have been reached
-button.forEach(button => {
-   button.addEventListener('click', function() {
-      if ((playerScore == 5 && playerScore > computerScore) || (computerScore == 5 && computerScore > playerScore)) {
-         button.disabled = true;
-      }
-      else {
-         button.disabled = false;
-      }
-   })
-})
+// save for later
+// button.forEach(button => {
+//    button.addEventListener('click', function() {
+//       if ((playerScore == 5 && playerScore > computerScore) || (computerScore == 5 && computerScore > playerScore)) {
+//          button.disabled = true;
+//       }
+//       else {
+//          button.disabled = false;
+//       }
+//    })
+// })
 
 //function to play a single round
 function playRound(playerSelection) {
