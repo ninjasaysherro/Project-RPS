@@ -5,19 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/styles.css">
-    <script src="/JS/script.js" defer></script>
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
-    <div>Player</div>
-        <span class="player-score"></span>
-    <div>Computer</div>
-        <span class="computer-score"></span>
-    
-    <div class="choices">
-        <button class = 'selection' data-selection="Rock">Rock!</button>
-        <button class = 'selection' data-selection="Paper">Paper!</button>
-        <button class = 'selection' data-selection="Scissors">Scissors!</button>
+    <div class = 'content'>
+        <div class = 'scoreboard'>
+            <h2><p><strong>Scoreboard</strong></p></h2>
+            <div>
+                <span id = 'player'><h3>Player: <span id = 'playerScore'> </span></h3></span>
+                <span id = 'computer'><h3>Computer: <span id = 'computerScore'> </span></h3></span>
+            </div>
+        </div>
+        <div class = 'form-group'>
+            <button type = 'submit' class = 'btn btn-default' data-selection = "Rock">Rock!</button>
+            <button type = 'submit' class = 'btn btn-default' data-selection = "Paper">Paper!</button>
+            <button type = 'submit' class = 'btn btn-default' data-selection = "Scissors">Scissors!</button>
+            <button class = 'btn btn-danger' onclick="location.reload();">Start Over</button>
+        </div>
+        <div id = 'result'></div>
     </div>
 </body>
 </html>
