@@ -2,14 +2,21 @@ body {
     background-color: aliceblue;
 }
 
-.choices {
+.content {
+    text-align: center;
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-top: 15%;
+}
+
+.scoreboard {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 10px;
 }
 
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h3 {
+    margin: 0;
+    margin-bottom: 10px;
 }
