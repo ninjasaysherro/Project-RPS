@@ -10,7 +10,6 @@ function computerPlay() {
 
 //playerSelection button event
 const button = document.querySelectorAll("button");
-
 button.forEach(button => {
    button.addEventListener('click', function() {
       const playerSelection = button.dataset.selection
@@ -18,20 +17,7 @@ button.forEach(button => {
    })
 })
 
-//disable the buttons after 5 points have been reached
-// save for later
-// button.forEach(button => {
-//    button.addEventListener('click', function() {
-//       if ((playerScore == 5 && playerScore > computerScore) || (computerScore == 5 && computerScore > playerScore)) {
-//          button.disabled = true;
-//       }
-//       else {
-//          button.disabled = false;
-//       }
-//    })
-// })
-
-//function to play a single round
+//function to play a single round + affix results to scoreboard
 function playRound(playerSelection) {
    let computerSelection = computerPlay();
    let result = '';
@@ -40,23 +26,26 @@ function playRound(playerSelection) {
       (playerSelection === 'Paper' && computerSelection === 'Rock') ||
       (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
       
-      playerScore += 1;
+      playerScore++;
       result += ('You win! ' + playerSelection + ' beats ' + computerSelection.toLowerCase() + '!');
 
       if (playerScore >= 5 && playerScore > computerScore) {
          result += (' You win the game!');
+         document.getElementById('submit1').disabled = true;
+         document.getElementById('submit2').disabled = true;
+         document.getElementById('submit3').disabled = true;
       }
-   }
-   else if (playerSelection === computerSelection) {
+   } else if (playerSelection === computerSelection) {
       result += ('It\'s a tie. You both chose ' + playerSelection.toLowerCase()+ '!');
-   }
-
-   else {
-      computerScore += 1;
+   } else {
+      computerScore++;
       result += ('You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase()+ '!');
 
       if (computerScore >= 5 && computerScore > playerScore) {
          result += (' Computer won the game!');
+         document.getElementById('submit1').disabled = true;
+         document.getElementById('submit2').disabled = true;
+         document.getElementById('submit3').disabled = true;
       }
    }
    document.getElementById('playerScore').textContent = playerScore;
