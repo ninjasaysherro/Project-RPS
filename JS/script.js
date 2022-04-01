@@ -17,7 +17,7 @@ button.forEach(button => {
    })
 })
 
-//function to play a single round + affix results to scoreboard
+//function to play a single round + affix results to scoreboard + disables buttons
 function playRound(playerSelection) {
    let computerSelection = computerPlay();
    let result = '';
