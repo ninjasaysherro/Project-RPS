@@ -11,7 +11,7 @@ function computerPlay() {
 //playerSelection button event
 const button = document.querySelectorAll("button");
 button.forEach(button => {
-   button.addEventListener('click', function() {
+   button.addEventListener('click', function () {
       const playerSelection = button.dataset.selection
       playRound(playerSelection, computerPlay);
    })
@@ -25,7 +25,7 @@ function playRound(playerSelection) {
    if ((playerSelection === 'Rock' && computerSelection === 'Scissors') ||
       (playerSelection === 'Paper' && computerSelection === 'Rock') ||
       (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
-      
+
       playerScore++;
       result += ('You win! ' + playerSelection + ' beats ' + computerSelection.toLowerCase() + '!');
 
@@ -36,10 +36,10 @@ function playRound(playerSelection) {
          document.getElementById('submit3').disabled = true;
       }
    } else if (playerSelection === computerSelection) {
-      result += ('It\'s a tie. You both chose ' + playerSelection.toLowerCase()+ '!');
+      result += ('It\'s a tie. You both chose ' + playerSelection.toLowerCase() + '!');
    } else {
       computerScore++;
-      result += ('You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase()+ '!');
+      result += ('You lose! ' + computerSelection + ' beats ' + playerSelection.toLowerCase() + '!');
 
       if (computerScore >= 5 && computerScore > playerScore) {
          result += (' Computer won the game!');
