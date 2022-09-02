@@ -11,28 +11,48 @@
 
 body {
     background-color: aliceblue;
+    display: grid;
 }
 
 .content {
     text-align: center;
     margin-right: 15%;
     margin-left: 14.5%;
-    margin-top: 2.5%;
 }
 
 .scoreboard {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 10px;
 }
 
 div.form-group {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;   
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+div#result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 h3 {
     margin: 0;
     margin-bottom: 10px;
+}
+
+#submit1,
+#submit2,
+#submit3 {
+    min-width: 140px;
+    margin-bottom: 3px;
+    padding: 10px;
+}
+
+.btn-danger {
+    min-width: 130px;
 }
