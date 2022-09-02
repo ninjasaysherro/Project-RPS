@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <script src="JS/script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class = "body-title">
@@ -21,13 +21,15 @@
                 <span id = 'computer'><h3>Computer: <span id = 'computerScore'> </span></h3></span>
             </div>
         </div>
-        <div class = 'form-group'>
-            <button id = 'submit1' class = 'btn btn-default' data-selection = "Rock">Rock!</button>
-            <button id = 'submit2' class = 'btn btn-default' data-selection = "Paper">Paper!</button>
-            <button id = 'submit3' class = 'btn btn-default' data-selection = "Scissors">Scissors!</button>
-            <button class = 'btn btn-danger' onclick="location.reload();">Play again?</button>
-        </div>
         <div style="font-weight: bold; font-size: large;" id = 'result'></div>
+        <div class = 'form-group'>
+            <button id = 'submit1' class = 'btn btn-default' data-selection = "Rock"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/309/rock_1faa8.png"></button>
+            <button id = 'submit2' class = 'btn btn-default' data-selection = "Paper"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/153/roll-of-paper_1f9fb.png"></button>
+            <button id = 'submit3' class = 'btn btn-default' data-selection = "Scissors"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/black-scissors_2702.png"></button>
+        </div>
+        <div>
+            <button class = 'btn btn-danger'>Play again?</button>
+        </div>
     </div>
 </body>
 </html>
